@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Custom CSS styles */
+        body {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensure full viewport height */
+            background-image: url(1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h2, p {
+            text-align: center;
+            font-family: sans-serif;
+            margin: auto;
+            color: azure;
+        }
+        img {
+            border-radius: 20px;
+            display: block; /* Ensure the image is treated as a block element */
+            margin: 0 auto; /* Center the image horizontally */
+        }
+        button {
+            border-radius: 10px; /* Add rounded corners to the button */
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px; /* Adjusted font size */
+            margin: auto;
+            padding: 10px;
+        }
+        /* Center align text within paragraphs */
+        p {
+            text-align: center;
+            margin: auto;
+            max-width: 80%; /* Adjust the maximum width as needed */
+        }
+    </style>
+</head>
+<body>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p id="message"></p> <!-- Placeholder for the message -->
+
+<button onclick="Eyesclose()">Turn On</button>
+
+<img id="myImage" src="off.jpg">
+
+<script>
+    function Eyesclose() {
+        var image = document.getElementById('myImage');
+        var message = document.getElementById('message');
+
+        if (image.src.endsWith('off.jpg')) {
+            image.src = 'on.jpg';
+            message.textContent = "The eyes are open!";
+
+            // Append paragraph about human eyes
+            var paragraph = document.createElement('p');
+            paragraph.textContent = "Human eyes are complex organs that detect light and convert it into electrochemical impulses in neurons.";
+            document.body.appendChild(paragraph);
+        } else {
+            image.src = 'off.jpg';
+            message.textContent = "The eyes are closed!";
+            
+            // Remove the paragraph about human eyes if it exists
+            var paragraph = document.querySelector('p');
+            if (paragraph) {
+                paragraph.remove();
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
